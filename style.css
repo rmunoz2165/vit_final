@@ -1,0 +1,172 @@
+/* set a reset rule 
+* {margin: 0; padding: 0; border: 0; box-sizing: border-box;}
+*/
+header {
+    background-color: #ABC; 
+    min-height: 150px;
+}
+
+/************************ Beginning of Navigation Bar **************************/
+
+
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem)
+}
+
+.logo {
+    margin: 2rem;
+}
+
+#page-title{
+    font-size: 55px;
+    font-family:cursive;
+}
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-toggle  { 
+    display: none;
+} 
+
+.primary-navigation {
+    list-style: none;
+    padding : 0;
+    margin: 0;
+
+    background: hsl(0 0% 0% / 0.75);
+}
+
+@supports (backdrop-filter: blur(1rem)){
+    .primary-navigation {
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(1rem);
+        }
+    }
+
+.primary-navigation a {
+text-decoration: none;
+}
+
+
+.primary-navigation a > [aria-hidden="true"]{
+font-weight: 700;
+margin-inline-end: 0.75em;
+}
+
+
+@media (max-width: 35em){
+    .primary-navigation {
+        --gap: 2em; 
+
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+
+        transform: translateX(50%);
+        transition: transform 350ms ease-out;
+    
+    }
+
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0%);
+    }
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        background-color: transparent;
+        background-image: url("assets/icon-hamburger.svg");
+        background-repeat: no-repeat;
+        width: 2.5rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url("assets/icon-close.svg");
+    }
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+    .primary-navigation a > span[aria-hidden]{
+        display: none;
+    }
+}
+
+@media (min-width: 35em){
+    .primary-navigation {
+        --gap: clamp(1.5rem, 5vw, 3rem);
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 5vw, 10rem);
+    }
+}
+
+
+
+    /* Center the content screen: https://blog.hubspot.com/website/center-div-css*/
+
+
+/************************************** End of Navigation Bar **********************/
+
+.content-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+}
+/*
+.side-bar {
+    flex: 1 1 30%;
+}
+*/
+
+h1 {
+    text-align:center;
+}
+
+p {
+    font-size: 24px;
+}
+
+.content-sidebar > *:nth-child(1) {
+    flex: 1 1 80%;
+    
+}
+
+.col {
+    display:flex; 
+    justify-content: center;
+}
+
+.tableauPlaceholder {
+
+    border: 2px solid #1f1f1c; 
+    padding: 2px;
+
+  } 
+
+  .title {
+    padding: 5px;
+    margin: 10px;
+  }
+/*
+  .content-sidebar > *:nth-child(2){
+    flex: 1 1 30%;
+    
+}
+*/
+.content-sidebar > side-bar {
+    flex: 1 1 20%;
+}
+
+
+footer {
+    background-color: #456; min-height: 200px;
+}
